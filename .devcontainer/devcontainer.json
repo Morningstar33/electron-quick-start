@@ -1,0 +1,43 @@
+Using Constructor Functions:
+   ```javascript
+   function Car(make, model, year, color) {
+     this.make = make;
+     this.model = model;
+     this.year = year;
+     this.color = color;
+     this.mileage = 0;
+     this.isRunning = false;
+   }
+
+   Car.prototype.start = function() {
+     this.isRunning = true;
+     console.log('The car has started.');
+   };
+
+   Car.prototype.stop = function() {
+     this.isRunning = false;
+     console.log('The car has stopped.');
+   };
+
+   Car.prototype.drive = function(distance) {
+     if (this.isRunning) {
+       this.mileage += distance;
+       console.log(`The car has driven ${distance} miles.`);
+     } else {
+       console.log('Cannot drive. The car is not running.');
+     }
+   };
+
+   // Create a new car object
+   const myCar = new Car('Toyota', 'Camry', 2022, 'Blue');
+
+   // Access properties and methods using dot notation
+   console.log(myCar.make); // Output: Toyota
+   console.log(myCar.model); // Output: Camry
+   console.log(myCar.year); // Output: 2022
+
+   // Invoke methods using method invocation
+   myCar.start(); // Output: The car has started.
+   myCar.drive(100); // Output: The car has driven 100 miles.
+   myCar.stop(); // Output: The car has stopped.
+   ```
